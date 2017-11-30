@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Программа_для_военки
@@ -72,7 +66,7 @@ namespace Программа_для_военки
                 double count_run100 = Convert.ToDouble(textBox2.Text);
                 double count_run3 = Convert.ToDouble(textBox3.Text);
 
-                if (Юноши.Checked == true)
+                if (radioButton1.Checked == true)
                 {
                     textBox4.Text = Convert.ToString(Podtyag(count_pod, length_male, ScoreMale));
                     textBox5.Text = Convert.ToString(run(count_run100, length_male, ScoreMale, 2));
@@ -80,7 +74,7 @@ namespace Программа_для_военки
 
                 }
 
-                else if (Девушки.Checked == true)
+                else if (radioButton2.Checked == true)
                 {
                     textBox4.Text = Convert.ToString(Podtyag(count_pod, length_female, ScoreFemale));
                     textBox5.Text = Convert.ToString(run(count_run100, length_female, ScoreFemale, 2));
@@ -273,6 +267,14 @@ namespace Программа_для_военки
         private void очиститьВсеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clear();
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+            textBox_sum.Text = "";
+            textBox_result.Text = "";
         }
         
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -298,12 +300,6 @@ namespace Программа_для_военки
             {
                 Юноши.Checked = true;
                 Девушки.Checked = false;
-
-
-                label1.Text = "Подтягивание:";
-                label11.Text = "Бег на 3 км:";
-                label1.TextAlign = ContentAlignment.MiddleRight;
-                label1.Location = new Point(label1.Location.X - 25, label1.Location.Y);
             }
             Юноши.Checked = true;
         }
@@ -314,13 +310,36 @@ namespace Программа_для_военки
             {
                 Юноши.Checked = false;
                 Девушки.Checked = true;
+            }
+            Девушки.Checked = true;
+        }
 
-                label1.Text = "         Пресс:";
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton1.Checked == true)
+            {
+                radioButton1.Checked = false;
+                radioButton2.Checked = true;
+
+                label1.Text = "                  Пресс:";
                 label11.Text = "Бег на 1 км:";
                 label1.TextAlign = ContentAlignment.MiddleRight;
                 label1.Location = new Point(label1.Location.X + 25, label1.Location.Y);
             }
-            Девушки.Checked = true;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButton2.Checked == true)
+            {
+                radioButton2.Checked = false;
+                radioButton1.Checked = true;
+
+                label1.Text = "Подтягивание:";
+                label11.Text = "Бег на 3 км:";
+                label1.TextAlign = ContentAlignment.MiddleRight;
+                label1.Location = new Point(label1.Location.X - 25, label1.Location.Y);
+            }
         }
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using _Word = Microsoft.Office.Interop.Word;
 
@@ -83,6 +79,7 @@ namespace Программа_для_военки
                         if (dataGridView.Rows[i - 5].Cells[j - 1].Value != null)
                         {
                             wordcellrange = table.Cell(i, j + 1).Range;
+                            wordcellrange.Font.Size = 14;
                             wordcellrange.Text = dataGridView.Rows[i - 5].Cells[j - 1].Value.ToString();
                         }
                 }

@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label1.Text" xml:space="preserve">
-    <value>Программа создана в целях рассчета баллов и формирования списка
- студентов, изъявивших желание поступить на военную кафедру УГАТУ.
+    <value>Программа создана в целях расчета баллов и формирования списка
+студентов, изъявивших желание поступить на военную кафедру УГАТУ.
 
 
 Разработал: Рахимов Тимур, студент кафедры Информатики, ФИРТ.

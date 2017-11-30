@@ -74,6 +74,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.textBox_path = new System.Windows.Forms.TextBox();
             this.button_way = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -433,6 +435,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.radioButton1);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textBox6);
@@ -488,7 +492,7 @@
             this.Юноши.AutoSize = true;
             this.Юноши.Checked = true;
             this.Юноши.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Юноши.Location = new System.Drawing.Point(300, 93);
+            this.Юноши.Location = new System.Drawing.Point(197, 94);
             this.Юноши.Name = "Юноши";
             this.Юноши.Size = new System.Drawing.Size(71, 20);
             this.Юноши.TabIndex = 6;
@@ -499,7 +503,7 @@
             // Девушки
             // 
             this.Девушки.AutoSize = true;
-            this.Девушки.Location = new System.Drawing.Point(158, 94);
+            this.Девушки.Location = new System.Drawing.Point(298, 94);
             this.Девушки.Name = "Девушки";
             this.Девушки.Size = new System.Drawing.Size(84, 20);
             this.Девушки.TabIndex = 5;
@@ -547,6 +551,30 @@
             this.button_way.Text = "Обзор";
             this.button_way.UseVisualStyleBackColor = true;
             this.button_way.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(70, 32);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(70, 20);
+            this.radioButton1.TabIndex = 29;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Юноши";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(70, 62);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(83, 20);
+            this.radioButton2.TabIndex = 30;
+            this.radioButton2.Text = "Девушки";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // Form1
             // 
@@ -624,6 +652,8 @@
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
         private System.Windows.Forms.CheckBox Юноши;
         private System.Windows.Forms.CheckBox Девушки;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }
 

@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
 using _Word = Microsoft.Office.Interop.Word;
@@ -50,6 +45,7 @@ namespace Программа_для_военки
                 table = new string[n - 1, m - 1];
 
                 int t = 0;
+
                 #region
                 for (int i = 5; i <= n + 1; i++)
                 {
@@ -123,10 +119,13 @@ namespace Программа_для_военки
                         table[i - 5, 11] = "-";
                 }
                 #endregion
+
                 vedomost.Close();
                 protokol.Close();
                 word.Quit();
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(word);
+
+                #region
 
                 table[n - 3, 0] = "Граждане, не выполнившие пороговый минимум по физической подготовленности";
 
@@ -136,16 +135,17 @@ namespace Программа_для_военки
                 {
                     for (int j = 3; j < 6; j++)
                     {
-                        if (table[i, j] == "0")
-                        {
-                            change(table, n - 2, i);
-                            i--;
-                            t++;
-                            break;
-                        }
+                        if (table[i, j] != "" && table[i, j] != null && table[i, j] != "-"
+                            && Convert.ToInt16(table[i, j]) < 26)
+                            {
+                                change(table, n - 2, i);
+                                i--;
+                                t++;
+                                break;
+                            }
                     }
                 }
-
+                
 
                 table[n - 2, 0] = "Граждане, не прошедшие предварительный отбор";
 
@@ -193,6 +193,8 @@ namespace Программа_для_военки
                         t = i;
                         break;
                     }
+
+                #endregion
 
                 sortirovka(table, t);
 
@@ -341,21 +343,19 @@ namespace Программа_для_военки
                     {
                         wordcellrange = table_protokol.Cell(i, j).Range;
                         wordcellrange.Text = table[i - 4, j - 2];
+                        wordcellrange.Font.Size = 14;
                     }
 
-                    wordcellrange = table_protokol.Cell(i, 2).Range;
-                    string storka = replace(wordcellrange);
-
-                    if (storka == "Граждане, не выполнившие пороговый минимум по физической подготовленности" ||
-                        storka == "Граждане, не прошедшие предварительный отбор")
+                    if (table[i - 4, 0] == "Граждане, не выполнившие пороговый минимум по физической подготовленности" ||
+                        table[i - 4, 0] == "Граждане, не прошедшие предварительный отбор")
                     {
-                        for (int j = 1; j < table_protokol.Columns.Count; j++)
+                        for (int x = 1; x < table_protokol.Columns.Count; x++)
                             table_protokol.Cell(i, 1).Merge(table_protokol.Cell(i, 2));
                         wordcellrange = table_protokol.Cell(i, 1).Range;
-                        wordcellrange.Text = storka;
-                        wordcellrange.Font.Size = 14;
+                        wordcellrange.Text = table[i - 4, 0];
                         wordcellrange.Bold = 1;
                     }
+
                 }
 
                 try
@@ -449,7 +449,7 @@ namespace Программа_для_военки
         {
             for (int i = 0; i < n; i++)
             {
-                for (int j = i; j > 0 && Convert.ToInt16(table[j - 1, 11]) <= Convert.ToInt16(table[j, 11]); j--) // пока j>0 и элемент j-1 > j, x-массив int
+                for (int j = i; j > 0 && Convert.ToInt16(table[j - 1, 11]) <= Convert.ToInt16(table[j, 11]); j--) // пока j > 0 и элемент j-1 > j, x-массив int
                 {
                     if (table[j - 1, 11] == table[j, 11])
                     {

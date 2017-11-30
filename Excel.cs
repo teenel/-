@@ -73,6 +73,7 @@ namespace Программа_для_военки
 
         public void Close()
         {
+            
             wb.Close(false, _missingObj, _missingObj);
             excel.Quit();
 
