@@ -57,7 +57,7 @@ namespace Программа_для_военки
 
             Cursor.Current = Cursors.Default;
         }
-
+        
         public void Process()
         {
             if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "")
@@ -71,7 +71,6 @@ namespace Программа_для_военки
                     textBox4.Text = Convert.ToString(Podtyag(count_pod, length_male, ScoreMale));
                     textBox5.Text = Convert.ToString(run(count_run100, length_male, ScoreMale, 2));
                     textBox6.Text = Convert.ToString(run(count_run3, length_male, ScoreMale, 3));
-
                 }
 
                 else if (radioButton2.Checked == true)
@@ -292,26 +291,6 @@ namespace Программа_для_военки
         {
             About fm = new About();
             fm.Show();
-        }
-        
-        private void Юноши_Click(object sender, EventArgs e)
-        {
-            if (Девушки.Checked == true)
-            {
-                Юноши.Checked = true;
-                Девушки.Checked = false;
-            }
-            Юноши.Checked = true;
-        }
-
-        private void Девушки_Click(object sender, EventArgs e)
-        {
-            if (Юноши.Checked == true)
-            {
-                Юноши.Checked = false;
-                Девушки.Checked = true;
-            }
-            Девушки.Checked = true;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)

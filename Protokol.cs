@@ -27,7 +27,7 @@ namespace Программа_для_военки
         private void button1_Click(object sender, EventArgs e)
         {
             try
-            {
+            { 
                 Cursor.Current = Cursors.WaitCursor;
 
                 Clear();
@@ -46,7 +46,7 @@ namespace Программа_для_военки
 
                 int t = 0;
 
-                #region
+#region
                 for (int i = 5; i <= n + 1; i++)
                 {
                     t = 0;
@@ -118,14 +118,14 @@ namespace Программа_для_военки
                     else
                         table[i - 5, 11] = "-";
                 }
-                #endregion
+#endregion
 
                 vedomost.Close();
                 protokol.Close();
                 word.Quit();
                 System.Runtime.InteropServices.Marshal.ReleaseComObject(word);
 
-                #region
+#region
 
                 table[n - 3, 0] = "Граждане, не выполнившие пороговый минимум по физической подготовленности";
 
@@ -194,9 +194,22 @@ namespace Программа_для_военки
                         break;
                     }
 
-                #endregion
+                int count = 0;
+                for (int i = 0; i < t; i++)
+                {
+                    if (table[i, 10] == "III категория")
+                    {
+                        change(table, t, i);
+                        i--;
+                        t--;
+                        count++;
+                    }
 
-                sortirovka(table, t);
+                }
+#endregion
+
+                sortirovka(table, 0, t);
+                sortirovka(table, t, t + count);
 
                 Cursor.Current = Cursors.WaitCursor;
 
@@ -445,11 +458,11 @@ namespace Программа_для_военки
             Close();
         }
 
-        private void sortirovka(string [,] table, int n)
+        private void sortirovka(string [,] table, int m, int n)
         {
-            for (int i = 0; i < n; i++)
+            for (int i = m; i < n; i++)
             {
-                for (int j = i; j > 0 && Convert.ToInt16(table[j - 1, 11]) <= Convert.ToInt16(table[j, 11]); j--) // пока j > 0 и элемент j-1 > j, x-массив int
+                for (int j = i; j > m && Convert.ToInt16(table[j - 1, 11]) <= Convert.ToInt16(table[j, 11]); j--) // пока j > 0 и элемент j-1 > j, x-массив int
                 {
                     if (table[j - 1, 11] == table[j, 11])
                     {

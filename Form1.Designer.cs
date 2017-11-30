@@ -67,19 +67,21 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.Юноши = new System.Windows.Forms.CheckBox();
-            this.Девушки = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Юноши = new System.Windows.Forms.RadioButton();
+            this.Девушки = new System.Windows.Forms.RadioButton();
             this.button_Ready = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox_path = new System.Windows.Forms.TextBox();
             this.button_way = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -470,6 +472,19 @@
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(70, 32);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(70, 20);
+            this.radioButton1.TabIndex = 29;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Юноши";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -484,8 +499,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.Юноши);
-            this.groupBox2.Controls.Add(this.Девушки);
+            this.groupBox2.Controls.Add(this.panel1);
             this.groupBox2.Controls.Add(this.button_Ready);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.textBox_path);
@@ -498,29 +512,36 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Работа с Word";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Юноши);
+            this.panel1.Controls.Add(this.Девушки);
+            this.panel1.Location = new System.Drawing.Point(211, 85);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(192, 37);
+            this.panel1.TabIndex = 9;
+            // 
             // Юноши
             // 
             this.Юноши.AutoSize = true;
             this.Юноши.Checked = true;
-            this.Юноши.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.Юноши.Location = new System.Drawing.Point(197, 94);
+            this.Юноши.Location = new System.Drawing.Point(3, 11);
             this.Юноши.Name = "Юноши";
-            this.Юноши.Size = new System.Drawing.Size(71, 20);
-            this.Юноши.TabIndex = 6;
+            this.Юноши.Size = new System.Drawing.Size(70, 20);
+            this.Юноши.TabIndex = 7;
+            this.Юноши.TabStop = true;
             this.Юноши.Text = "Юноши";
             this.Юноши.UseVisualStyleBackColor = true;
-            this.Юноши.Click += new System.EventHandler(this.Юноши_Click);
             // 
             // Девушки
             // 
             this.Девушки.AutoSize = true;
-            this.Девушки.Location = new System.Drawing.Point(298, 94);
+            this.Девушки.Location = new System.Drawing.Point(92, 11);
             this.Девушки.Name = "Девушки";
-            this.Девушки.Size = new System.Drawing.Size(84, 20);
-            this.Девушки.TabIndex = 5;
+            this.Девушки.Size = new System.Drawing.Size(83, 20);
+            this.Девушки.TabIndex = 8;
             this.Девушки.Text = "Девушки";
             this.Девушки.UseVisualStyleBackColor = true;
-            this.Девушки.Click += new System.EventHandler(this.Девушки_Click);
             // 
             // button_Ready
             // 
@@ -563,19 +584,6 @@
             this.button_way.UseVisualStyleBackColor = true;
             this.button_way.Click += new System.EventHandler(this.button2_Click);
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(70, 32);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 20);
-            this.radioButton1.TabIndex = 29;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Юноши";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
-            // 
             // Form1
             // 
             this.AcceptButton = this.button1;
@@ -600,6 +608,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -650,10 +660,11 @@
         private System.Windows.Forms.ToolStripMenuItem работаСПротоколомToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПрограммеToolStripMenuItem;
-        private System.Windows.Forms.CheckBox Юноши;
-        private System.Windows.Forms.CheckBox Девушки;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton Юноши;
+        private System.Windows.Forms.RadioButton Девушки;
     }
 }
 
